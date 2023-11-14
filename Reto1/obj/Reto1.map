@@ -1,0 +1,80 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           
+     00000000  l__DATA                         
+     00000173  l__CODE                         
+     00004000  s__CODE                         
+     00004173  s__DATA                         
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00004000    00000173 =         371. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00004000  _main                              cpct_keyboard
+     00004052  _cpct_isKeyPressed                 cpct_keyboard
+     00004052  cpct_isKeyPressed_asm              cpct_keyboard
+     0000405E  cpct_drawCharM1_asm                cpct_strings
+     00004075  _cpct_keyboardStatusBuffer         cpct_keyboard
+     0000407F  _cpct_isAnyKeyPressed              cpct_keyboard
+     0000407F  cpct_isAnyKeyPressed_asm           cpct_keyboard
+     0000408C  _cpct_disableFirmware              cpct_firmware
+     0000408C  _cpct_removeInterruptHandler       cpct_firmware
+     0000408C  cpct_disableFirmware_asm           cpct_firmware
+     0000408C  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000409C  _cpct_mode_rom_status              cpct_firmware
+     0000409D  cpct_setDrawCharM1_asm             cpct_strings
+     000040EE  _cpct_scanKeyboard                 cpct_keyboard
+     000040EE  cpct_scanKeyboard_asm              cpct_keyboard
+     0000411F  cpct_drawCharM1_inner_asm          cpct_strings
+     0000415F  cpct_char2pxM1                     cpct_strings
+     0000416F  dc_mode1_ct                        
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+
+Files Linked                              [ module(s) ]
+
+obj/main.rel                              [ cpct_keyboard ]
+
+
+Libraries Linked                          [ object file ]
+
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isKeyPressed.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawCharM1_asmbindings.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ keyboard.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isAnyKeyPressed.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_removeInterruptHandler.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setDrawCharM1_asmbindings.r ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_scanKeyboard.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawCharM1_inner.rel ]
+/home/cpc/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_dc_mode1_ct.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+
+User Base Address Definitions
+
+_CODE = 0x4000
+_DATA = 0x0000
+
+

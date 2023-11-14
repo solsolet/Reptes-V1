@@ -1,0 +1,24 @@
+DEF .__.ABS. 0x0
+DEF l__DATA 0x0
+DEF l__CODE 0x173
+DEF s__CODE 0x4000
+DEF s__DATA 0x4173
+DEF _main 0x4000
+DEF _cpct_isKeyPressed 0x4052
+DEF cpct_isKeyPressed_asm 0x4052
+DEF cpct_drawCharM1_asm 0x405E
+DEF _cpct_keyboardStatusBuffer 0x4075
+DEF _cpct_isAnyKeyPressed 0x407F
+DEF cpct_isAnyKeyPressed_asm 0x407F
+DEF _cpct_disableFirmware 0x408C
+DEF _cpct_removeInterruptHandler 0x408C
+DEF cpct_disableFirmware_asm 0x408C
+DEF cpct_removeInterruptHandler_asm 0x408C
+DEF _cpct_mode_rom_status 0x409C
+DEF cpct_setDrawCharM1_asm 0x409D
+DEF _cpct_scanKeyboard 0x40EE
+DEF cpct_scanKeyboard_asm 0x40EE
+DEF cpct_drawCharM1_inner_asm 0x411F
+DEF cpct_char2pxM1 0x415F
+DEF dc_mode1_ct 0x416F
+LOAD obj/Reto1.ihx

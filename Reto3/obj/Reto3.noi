@@ -1,0 +1,20 @@
+DEF .__.ABS. 0x0
+DEF l__DATA 0x0
+DEF l__CODE 0x713
+DEF s__CODE 0x4000
+DEF s__DATA 0x4713
+DEF _num_entities 0x403D
+DEF _last_elem_ptr 0x403E
+DEF _entity_array 0x4040
+DEF _main 0x469B
+DEF cpct_setPalette_asm 0x46AE
+DEF cpct_setPALColour_asm 0x46C1
+DEF cpct_setVideoMode_asm 0x46CB
+DEF cpct_px2byteM0_asm 0x46D8
+DEF _cpct_disableFirmware 0x46F2
+DEF _cpct_removeInterruptHandler 0x46F2
+DEF cpct_disableFirmware_asm 0x46F2
+DEF cpct_removeInterruptHandler_asm 0x46F2
+DEF _cpct_mode_rom_status 0x4702
+DEF dc_mode0_ct 0x4703
+LOAD obj/Reto3.ihx
