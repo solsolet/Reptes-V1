@@ -3,7 +3,8 @@
 #include <cstdint>
 #include <cstdlib>
 #include <string>
-#include <cassert>
+#include <cassert>   // debug producció
+#include <span>      // rangos
 
 //Ctes
 constexpr uint16_t SCR_WIDTH = 800; //objetos conocidos en tiempo de compilación
@@ -12,14 +13,6 @@ const char* GAME_NAME = "My Game";
 
 struct Entity {
    uint16_t x{}, y{};
-};
-
-struct iterador {
-   Entity* it;
-};
-struct rango{
-   iterador begin();
-   iterador end();
 };
 
 // Dará acceso al array devolviendolo por referencia constante
@@ -33,7 +26,9 @@ struct EntityManager {
       return entities_[alive_ - 1]; //entitat0
    }
    std::size_t freeEntities() const noexcept { return MAX_ENTITIES - alive_; } 
-   std::array<Entity, MAX_ENTITIES> const& getEntities() const { return entities_; }
+   std::span<Entity const> getEntities() const {
+      return std::span{ entities_.begin(), alive_ };
+   }
 
 private:
    std::size_t alive_ {}; //valor 0 per defecte
