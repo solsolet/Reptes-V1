@@ -14,21 +14,27 @@ struct Entity {
    uint16_t x{}, y{};
 };
 
+struct iterador {
+   Entity* it;
+};
+struct rango{
+   iterador begin();
+   iterador end();
+};
+
 // Dará acceso al array devolviendolo por referencia constante
 struct EntityManager {
    static constexpr std::size_t MAX_ENTITIES { 100 }; //1 max_entities per a totos
    
-   Entity& newEntity(){
-      assert((alive_ < MAX_ENTITIES)&& "CUIDAO"); // codi de producció
+   Entity& newEntity() noexcept {
+      assert((alive_ < MAX_ENTITIES) && "CUIDAO"); // codi de producció
       
       alive_ += 1; //llevar-se la mania del ++
       return entities_[alive_ - 1]; //entitat0
    }
-      // freeEntities()
-      //  
-      // getEntities()????
- 
+   std::size_t freeEntities() const noexcept { return MAX_ENTITIES - alive_; } 
    std::array<Entity, MAX_ENTITIES> const& getEntities() const { return entities_; }
+
 private:
    std::size_t alive_ {}; //valor 0 per defecte
    std::array<Entity, MAX_ENTITIES> entities_{};
