@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <cstdlib>
 #include <string>
+#include <cassert>
 
 //Ctes
 constexpr uint16_t SCR_WIDTH = 800; //objetos conocidos en tiempo de compilación
@@ -17,22 +18,19 @@ struct Entity {
 struct EntityManager {
    static constexpr std::size_t MAX_ENTITIES { 100 }; //1 max_entities per a totos
    
-   EntityManager() {
-      /* for(auto& p: entities_) {
-         p.x = static_cast<uint16_t>(rand()) % SCR_WIDTH; //el casteo de veres en c++ es fa aixina //unsigned ssize_t
-         p.y = static_cast<uint16_t>(rand()) % SCR_HEIGHT;
-      } */
-      // newEntity();
-      // ??? > 100
-      //   #include <cassert>
-      //   assert() // noseque que hace pum
+   Entity& newEntity(){
+      assert((alive_ < MAX_ENTITIES)&& "CUIDAO"); // codi de producció
+      
+      alive_ += 1; //llevar-se la mania del ++
+      return entities_[alive_ - 1]; //entitat0
+   }
       // freeEntities()
       //  
       // getEntities()????
-   }
  
    std::array<Entity, MAX_ENTITIES> const& getEntities() const { return entities_; }
 private:
+   std::size_t alive_ {}; //valor 0 per defecte
    std::array<Entity, MAX_ENTITIES> entities_{};
 };
  
@@ -52,8 +50,11 @@ int main() {
    InitWindow(SCR_WIDTH, SCR_HEIGHT, GAME_NAME);
    EntityManager EM{};
 
-   //for() 10 entitats
-   //EM.newEntity();
+   for(auto i{0uz}; i<10; ++i){
+      Entity& e = EM.newEntity(); //me refiero
+      e.x = static_cast<uint16_t>(rand()) % SCR_WIDTH; //el casteo de veres en c++ es fa aixina //unsigned ssize_t
+      e.y = static_cast<uint16_t>(rand()) % SCR_HEIGHT;
+   }
  
    while ( ! WindowShouldClose() ) {
       render_system(EM);
