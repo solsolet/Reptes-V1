@@ -6,13 +6,13 @@
 struct Pixel {
    uint16_t x{}, y{};
 };
- 
+
 // Dará acceso al array devolviendolo por referencia constante
 struct EntityManager {
    EntityManager() {
       for(auto& p: pixeles_) {
-         p.x = rand() % 800;
-         p.y = rand() % 600;
+         p.x = uint16_t(rand() % 800uz); //unsigned ssize_t
+         p.y = uint16_t(rand() % 600uz);
       }
    }
  
