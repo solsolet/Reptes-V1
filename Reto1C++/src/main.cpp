@@ -4,10 +4,10 @@
 #include <cstdlib>
 #include <string>
 
-//Cte
-uint16_t SCREEN_HEIGHT = 600;
-uint16_t SCREEN_WEIGHT = 800;
-const size_t TAM_ARRAY = 100;
+//Ctes
+constexpr uint16_t SCR_WIDTH = 800; //objetos conocidos en tiempo de compilación
+constexpr uint16_t SCR_HEIGHT = 600;
+constexpr size_t MAX_ENTITIES = 100; //fer private
 const char* GAME_NAME = "My Game";
 
  
@@ -19,14 +19,14 @@ struct Pixel {
 struct EntityManager {
    EntityManager() {
       for(auto& p: pixeles_) {
-         p.x = static_cast<uint16_t>(rand()) % SCREEN_WEIGHT; //el casteo de veres en c++ es fa aixina //unsigned ssize_t
-         p.y = static_cast<uint16_t>(rand()) % SCREEN_HEIGHT;
+         p.x = static_cast<uint16_t>(rand()) % SCR_WIDTH; //el casteo de veres en c++ es fa aixina //unsigned ssize_t
+         p.y = static_cast<uint16_t>(rand()) % SCR_HEIGHT;
       }
    }
  
-   std::array<Pixel, TAM_ARRAY> const& getPixeles() const { return pixeles_; }
+   std::array<Pixel, MAX_ENTITIES> const& getPixeles() const { return pixeles_; }
 private:
-   std::array<Pixel, TAM_ARRAY> pixeles_{};
+   std::array<Pixel, MAX_ENTITIES> pixeles_{};
 };
  
 // Recibira como parámetro una referencia al EntityManager
@@ -42,7 +42,7 @@ void render_system(EntityManager& EM) {
 // Crear un EntityManager
 // Pásarselo al RenderSystem
 int main() {
-   InitWindow(SCREEN_WEIGHT, SCREEN_HEIGHT, GAME_NAME);
+   InitWindow(SCR_WIDTH, SCR_HEIGHT, GAME_NAME);
    EntityManager  EM{};
  
    while ( ! WindowShouldClose() ) {
