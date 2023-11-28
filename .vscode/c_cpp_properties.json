@@ -3,7 +3,7 @@
         {
             "intelliSenseMode": "linux-gcc-x64",
             "compilerPath": "/usr/bin/clang",
-            "cStandard": "c20",
+            "cStandard": "c23",
             "cppStandard": "c++20",
             "includePath": [
                 "${workspaceFolder}/**"
