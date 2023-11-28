@@ -13,7 +13,7 @@ constexpr uint16_t SCR_HEIGHT { 600 };
  
 void update_entities(EntityManager& EM) {
    for( auto& e : EM.getEntities() ) {
-      if ( e.phy ) { e.phy->update(); }
+      if ( e.phy ) { e.phy->update(e); }
    }
 }
  
@@ -21,7 +21,7 @@ void render_system(EntityManager& EM) {
    BeginDrawing();
  
    for( auto& e : EM.getEntities() ) {
-      if ( e.ren ) { e.ren->update(); }
+      if ( e.ren ) { e.ren->update(e); }
    }
  
    EndDrawing();

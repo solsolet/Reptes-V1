@@ -2,9 +2,9 @@
 #include <cassert>
 
 Entity& 
-newEntity() noexcept {
-      assert(alive_ < MAX_ENTITIES);
-      
-      alive_ += 1;
-      return entities_[alive_ - 1];
+EntityManager::newEntity() noexcept {
+    assert(alive_ < MAX_ENTITIES);
+    
+    alive_ += 1;
+    return entities_[alive_ - 1];
 }

@@ -1,8 +1,10 @@
 #include "physicscomponent.hpp"
 #include <raylib.h>
 
-void
-update() {
-      x += vx;
-      y += vy;
+struct Entity;
+
+void 
+PhysicsComponent::update(Entity&) {
+   x += vx;
+   y += vy;
 }
