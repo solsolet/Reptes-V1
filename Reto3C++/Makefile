@@ -1,18 +1,23 @@
 CCFLAGS := -std=c++2b -Wall -Wpedantic -Wextra -Wconversion
-CC :=clang++
+CC 		:=clang++
+OBJ		:=obj/main.o obj/rendercomponent.o obj/physicscomponent.o
+INCLUDE :=-Isrc/
 
-game: obj/main.o obj/rendercomponent.o
-	$(CC) -o game -lraylib -fsanitize=address obj/main.o
+game: $(OBJ)
+	$(CC) -o $@ -lraylib -fsanitize=address $^
 
-obj/main.o: obj src/main.cpp
-	$(CC) $(CCFLAGS) -Isrc/ -g -fsanitize=address -c -o obj/main.o src/main.cpp
+obj/main.o: src/main.cpp | obj
+	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
 
-obj/rendercomponent.o: obj src/rendercomponent.cpp
-	$(CC) $(CCFLAGS) -Isrc/ -g -fsanitize=address -c -o obj/rendercomponent.o src/rendercomponent.cpp
+obj/rendercomponent.o: src/rendercomponent.cpp | obj
+	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
+
+obj/physicscomponent.o: src/physicscomponent.cpp | obj
+	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
 
 obj:
 	mkdir obj
 
 .PHONY: clean
 clean:
-	rm -r ./obj/
+	rm -rf ./obj/

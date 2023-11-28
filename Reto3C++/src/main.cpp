@@ -9,17 +9,9 @@
 #include <physicscomponent.hpp>
 #include <rendercomponent.hpp>
  
-///////////////////////////////////////////////////////
-/// FICHERO: rendercomponent.cpp //
-///////////////////////////////////////////////////////
- 
 constexpr uint16_t SCR_WIDTH  { 800 };
 constexpr uint16_t SCR_HEIGHT { 600 };
  
-struct Entity {
-   RenderComponent*  ren{};
-   PhysicsComponent* phy{};
-};
  
 // Dará acceso al array devolviendolo por referencia constante
 struct EntityManager {

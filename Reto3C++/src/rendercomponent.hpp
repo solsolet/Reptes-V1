@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <raylib.h>
 
 struct RenderComponent{
    uint16_t x{}, y{};
@@ -7,6 +8,6 @@ struct RenderComponent{
    Color c{WHITE};
  
    void update() {
-      DrawRectangle(x, y, w, h, c);
+      
    }
 };

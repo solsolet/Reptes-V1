@@ -1,4 +1,5 @@
 #pragma once
+#include <raylib.h>
 
 struct PhysicsComponent{
    float x{}, y{};
