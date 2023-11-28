@@ -9,18 +9,6 @@ game: $(OBJ)
 obj/%.o: src/%.cpp | obj
 	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
 
-#obj/main.o: src/main.cpp | obj
-#	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
-#
-#obj/rendercomponent.o: src/rendercomponent.cpp | obj
-#	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
-#
-#obj/physicscomponent.o: src/physicscomponent.cpp | obj
-#	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
-#
-#obj/entitymanager.o: src/entitymanager.cpp | obj
-#	$(CC) $(CCFLAGS) $(INCLUDE) -g -fsanitize=address -c -o $@ $^
-
 obj:
 	mkdir obj
 

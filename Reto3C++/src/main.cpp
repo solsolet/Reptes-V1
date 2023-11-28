@@ -3,36 +3,13 @@
 #include <cstdint>
 #include <cstdlib>
 #include <cassert>
-#include <span>
-#include <optional>
 
 #include <physicscomponent.hpp>
 #include <rendercomponent.hpp>
+#include <entitymanager.hpp>
  
 constexpr uint16_t SCR_WIDTH  { 800 };
 constexpr uint16_t SCR_HEIGHT { 600 };
- 
- 
-// Dará acceso al array devolviendolo por referencia constante
-struct EntityManager {
-   static constexpr std::size_t MAX_ENTITIES { 100 };
- 
-   Entity& newEntity() noexcept {
-      assert(alive_ < MAX_ENTITIES);
-      
-      alive_ += 1;
-      return entities_[alive_ - 1];
-   }
- 
-   std::size_t freeEntities() const noexcept { return MAX_ENTITIES - alive_; }
- 
-   std::span<Entity const> getEntities() const { 
-      return std::span{ entities_.begin(), alive_ }; 
-   }
-private:
-   std::size_t alive_{};
-   std::array<Entity, MAX_ENTITIES> entities_{};
-};
  
 void update_entities(EntityManager& EM) {
    for( auto& e : EM.getEntities() ) {

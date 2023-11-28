@@ -1,6 +1,8 @@
 #pragma once
-#include <physicscomponent.hpp>
-#include <rendercomponent.hpp>
+
+// Fordward declaration
+struct RenderComponent;
+struct PhysicsComponent;
 
 struct Entity {
    RenderComponent*  ren{};
