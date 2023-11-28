@@ -5,6 +5,6 @@
 ## C++
 ### Reto1C++
 
-Clonar modelo - IIII
-Modelo funcionando - III
+### Reto2C++
+Separar main en fitxers
 

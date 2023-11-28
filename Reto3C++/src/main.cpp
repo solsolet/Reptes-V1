@@ -6,8 +6,8 @@
 #include <span>
 #include <optional>
 
-#include "physicscomponent.hpp"
-#include "rendercomponent.hpp"
+#include <physicscomponent.hpp>
+#include <rendercomponent.hpp>
  
 ///////////////////////////////////////////////////////
 /// FICHERO: rendercomponent.cpp //

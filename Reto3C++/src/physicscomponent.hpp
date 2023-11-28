@@ -1,5 +1,4 @@
-#ifndef PHYSICSCOMPONENT_HPP
-#define PHYSICSCOMPONENT_HPP
+#pragma once
 
 struct PhysicsComponent{
    float x{}, y{};
@@ -10,5 +9,3 @@ struct PhysicsComponent{
       y += vy;
    }
 };
-
-#endif

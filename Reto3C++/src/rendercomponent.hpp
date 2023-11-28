@@ -1,5 +1,5 @@
-#ifndef RENDERCOMPONENT_HPP
-#define RENDERCOMPONENT_HPP
+#pragma once
+#include <cstdint>
 
 struct RenderComponent{
    uint16_t x{}, y{};
@@ -10,5 +10,3 @@ struct RenderComponent{
       DrawRectangle(x, y, w, h, c);
    }
 };
-
-#endif
