@@ -19,6 +19,7 @@ void update_entities(EntityManager& EM) {
  
 void render_system(EntityManager& EM) {
    BeginDrawing();
+   ClearBackground(BLACK);
  
    for( auto& e : EM.getEntities() ) {
       if ( e.ren ) { e.ren->update(e); }
@@ -30,7 +31,7 @@ void render_system(EntityManager& EM) {
 int main() {
    InitWindow(SCR_WIDTH, SCR_HEIGHT, "My Game");
    EntityManager  EM{};
-   PhysicsComponent p{  .x=1.f, .y=2.f, .vy=-1.f },
+   PhysicsComponent p{  .x=1.f, .y=2.f, .vy=1.f },
                     p2{ .vx=2.f };
    RenderComponent  r{ .x=100, .y=2, .w=50, .h=25 };
    RenderComponent  r2 { .w=20, .h=20 };

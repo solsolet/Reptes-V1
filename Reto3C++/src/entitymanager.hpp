@@ -15,6 +15,9 @@ struct EntityManager {
    std::span<Entity const> getEntities() const { 
       return std::span{ entities_.begin(), alive_ }; 
    }
+   std::span<Entity> getEntities() { 
+      return std::span{ entities_.begin(), alive_ }; 
+   }
 private:
    std::size_t alive_{};
    std::array<Entity, MAX_ENTITIES> entities_{};
