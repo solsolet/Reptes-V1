@@ -5,6 +5,9 @@
 #include <cassert>
 #include <span>
 #include <optional>
+
+#include "physicscomponent.hpp"
+#include "rendercomponent.hpp"
  
 ///////////////////////////////////////////////////////
 /// FICHERO: rendercomponent.cpp //
@@ -12,25 +15,6 @@
  
 constexpr uint16_t SCR_WIDTH  { 800 };
 constexpr uint16_t SCR_HEIGHT { 600 };
- 
-struct RenderComponent{
-   uint16_t x{}, y{};
-   uint16_t w{1}, h{1};
-   Color c{WHITE};
- 
-   void update() {
-      DrawRectangle(x, y, w, h, c);
-   }
-};
-struct PhysicsComponent{
-   float x{}, y{};
-   float vx{}, vy{};
- 
-   void update() {
-      x += vx;
-      y += vy;
-   }
-};
  
 struct Entity {
    RenderComponent*  ren{};
