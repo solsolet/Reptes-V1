@@ -13,3 +13,9 @@ Fem per a que compile els nous arxius, fem la macro OBJ, aprenem _$@_ (el target
 Requisitos de orden solo
 posar el | obj
 
+### Reto3C++
+Ara de la base de dos caixes que baixen fem les següents arreglos:
+* **contador en _Component_** per a automatitzar els returns
+    - no val posar una variable global en un _.hpp_ per que s'incluirà en molts llocs i donará problemes de compilació (per que estarà repetida)
+    - **solució** creem un _.cpp_ on li posem eixa variable i en main usem `extern` en primera instància, encara que segons el cas usarem `static` és millor
+* **següent**

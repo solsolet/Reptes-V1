@@ -41,6 +41,9 @@ int main() {
                      p2({ .vx=2.f });
    RenderComponent  r({ .x=100, .y=2, .w=50, .h=25 });
    RenderComponent r2({ .w=20, .h=20 });
+
+   //std:cout << +RenderComponent::getType() << "\n";
+   //numComponentes = 5;
                
    {
       auto& e = EM.newEntity();

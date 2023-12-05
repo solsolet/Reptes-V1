@@ -8,7 +8,10 @@ struct PhysicsComponent : Component {
    };
    Data data{};
 
-   constexpr static Component::Type getType() noexcept { return 1; }
+   static Component::Type getType() noexcept {
+      static auto id { ++numComponentes }; //es diu PhysicsComponent getType id
+      return id;
+   }
 
    explicit PhysicsComponent(Data d) : data{d} {}
    void update(Entity&) final;
