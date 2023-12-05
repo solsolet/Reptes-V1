@@ -16,9 +16,12 @@ void update_entities(EntityManager& EM) {
    }
 */  
    for( auto& e : EM.getEntities() ) {
-      for( auto& [_, c] : e.components ) {
-         c->update(e);
-      }
+      //for( auto& [_, c] : e.components ) {
+      //   c->update(e);
+      //}
+      auto* phyc = e.getComponent(PhysicsComponent{}); //mètode tag dispatching
+      if( phyc )
+         phyc->update(e);
    }
 
 }
@@ -28,7 +31,8 @@ void render_system(EntityManager& EM) {
    ClearBackground(BLACK);
 
    for( auto& e : EM.getEntities() ) {
-      if ( e.ren ) { e.ren->update(e); }
+      auto* renc = e.getComponent(RenderComponent({})); //quidra a un rc amb dades per defecte
+      if ( renc ) { renc->update(e); }
    }
 
    EndDrawing();
@@ -42,18 +46,19 @@ int main() {
    RenderComponent  r({ .x=100, .y=2, .w=50, .h=25 });
    RenderComponent r2({ .w=20, .h=20 });
 
-   //std:cout << +RenderComponent::getType() << "\n";
-   //numComponentes = 5;
+//MemViewer MV{r};
                
    {
       auto& e = EM.newEntity();
-      e.ren = &r;
-      //e.phy = &p;
-      e.components[PhysicsComponent::getType()] = &p;
+      //e.ren = &r;
+      //e.components[PhysicsComponent::getType()] = &p;
+      e.addComponent(r);
+      e.addComponent(p);
    }
    {
       auto& e = EM.newEntity();
-      e.ren = &r2;
+      //e.ren = &r2;
+      e.getComponent(r);
    }
    {
       auto& e = EM.newEntity();

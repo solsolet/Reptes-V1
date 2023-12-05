@@ -15,10 +15,6 @@ struct RenderComponent : Component {
 
    static Component::Type getType() noexcept {
       static auto id { ++numComponentes };
-      //if ( RenderComponent_type == 0 ) {
-      //   numComponentes += 1;
-      //   RenderComponent_type = numComponentes;
-      //}
       return id;
    }
 

@@ -14,8 +14,17 @@ Requisitos de orden solo
 posar el | obj
 
 ### Reto3C++
-Ara de la base de dos caixes que baixen fem les següents arreglos:
-* **contador en _Component_** per a automatitzar els returns
-    - no val posar una variable global en un _.hpp_ per que s'incluirà en molts llocs i donará problemes de compilació (per que estarà repetida)
-    - **solució** creem un _.cpp_ on li posem eixa variable i en main usem `extern` en primera instància, encara que segons el cas usarem `static` és millor
-* **següent**
+Ara de la base de dos caixes que baixen fem les següents arreglos.
+
+#### Contador en _Component_ per a automatitzar els returns
+* no val posar una variable global en un `.hpp` per que s'incluirà en molts llocs i donará problemes de compilació (per que estarà repetida)
+* **solució** creem un `.cpp` on li posem eixa variable i en main usem `extern` en primera instància, encara que segons el cas usarem `static` és millor
+    - _Volem vore quan ocupa RenderComponent_. Mostrar **memoria** amb les funcions `sizeof` i `alineof`
+        - apareix en la memoria un puntero (_28 7D C6..._) que apunta on estan les funcions que hem de quidrar quan quidrem a una virtual (direccions de memòria modificables).
+        - per aixó em de tindre en compte el que ocupen les dades per a que no apareguen coses rares.
+#### Fer addComponent, getComponent, hasComponent
+Aniran en `entity.hpp`. Hem de tindre en compte que render va a la seua bola (s'actualitza diferent a la resta de components).
+* addComponent: `void addComponent(nosequeComponent& cmp) { noseque = &cmp; }` 
+* getComponent: `nsComponent* [...] getComponent(nsComponent) [...] noexcept { ... }`
+_tag dispatching_
+* hasComponent: 

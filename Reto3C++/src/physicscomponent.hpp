@@ -13,6 +13,7 @@ struct PhysicsComponent : Component {
       return id;
    }
 
-   explicit PhysicsComponent(Data d) : data{d} {}
+   explicit PhysicsComponent(Data d) : data{d} {} //contructor
+   explicit PhysicsComponent() = default;         //constructor por defecto
    void update(Entity&) final;
 };
