@@ -27,4 +27,6 @@ Aniran en `entity.hpp`. Hem de tindre en compte que render va a la seua bola (s'
 * addComponent: `void addComponent(nosequeComponent& cmp) { noseque = &cmp; }` 
 * getComponent: `nsComponent* [...] getComponent(nsComponent) [...] noexcept { ... }`
 _tag dispatching_
-* hasComponent: 
+* hasComponent: no es necessari si fas el getComponent i en el main ho poses de certa manera
+#### Debuggejar
+Per defecte tenim el gdb. Executar en la terminal (revisar com). Posar un breakpoint i tal

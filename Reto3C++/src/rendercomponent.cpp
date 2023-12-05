@@ -6,10 +6,9 @@
 void 
 RenderComponent::update(Entity& e) {
    auto& d = data;
-   auto PhyType = PhysicsComponent::getType();
-   if ( e.components.contains(PhyType) ) {
-      auto* c = e.components[PhyType];
-      auto& p = static_cast<PhysicsComponent*>(c)->data;
+   auto* phyc = e.getComponent(PhysicsComponent{});
+   if ( phyc != nullptr ) {
+      auto& p = phyc->data;
       d.x = static_cast<uint16_t>(p.x);
       d.y = static_cast<uint16_t>(p.y);
    }

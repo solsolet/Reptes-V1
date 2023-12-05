@@ -16,9 +16,6 @@ void update_entities(EntityManager& EM) {
    }
 */  
    for( auto& e : EM.getEntities() ) {
-      //for( auto& [_, c] : e.components ) {
-      //   c->update(e);
-      //}
       auto* phyc = e.getComponent(PhysicsComponent{}); //mètode tag dispatching
       if( phyc )
          phyc->update(e);

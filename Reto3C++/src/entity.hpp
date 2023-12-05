@@ -1,9 +1,10 @@
 #pragma once
 #include <unordered_map>
 #include <component.hpp>
+#include <physicscomponent.hpp>
+#include <rendercomponent.hpp>
 // Forward declaration
-struct RenderComponent;
-struct PhysicsComponent;
+//struct RenderComponent;
 
 struct Entity {
    //primera manera
@@ -14,15 +15,21 @@ struct Entity {
       components[PhysicsComponent::getType()] = &cmp;
    }
 
-   RenderComponent* const* getComponent(RenderComponent) const noexcept { return ren; }
-   RenderComponent*        getComponent(RenderComponent)       noexcept { return ren; }
-   PhysicsComponent*       getComponent(PhysicsComponent)      noexcept {
+   RenderComponent const* getComponent(RenderComponent) const noexcept { return ren; }
+   RenderComponent*       getComponent(RenderComponent)       noexcept { return ren; }
+   PhysicsComponent*      getComponent(PhysicsComponent)      noexcept {
       return static_cast<PhysicsComponent*>(components[PhysicsComponent::getType()]);
    }
    PhysicsComponent const* getComponent(PhysicsComponent) const noexcept {
       return static_cast<PhysicsComponent*>(
          components.at(PhysicsComponent::getType())
       );
+   }
+   //si està ací evita que accedim als components
+   void update(){
+      for( auto& [_, c] : components ) {
+         c->update(*this); //el objecte al que apunta (operación e indirección)
+      }
    }
 
    //manera meua abans
