@@ -1,11 +1,15 @@
 #pragma once
-#include <raylib.h>
+#include <component.hpp>
 
-struct Entity;
+struct PhysicsComponent : Component {
+   struct Data {
+      float x{}, y{};
+      float vx{}, vy{};
+   };
+   Data data{};
 
-struct PhysicsComponent{
-   float x{}, y{};
-   float vx{}, vy{};
- 
-   void update(Entity& e);
+   constexpr static Component::Type getType() noexcept { return 1; }
+
+   explicit PhysicsComponent(Data d) : data{d} {}
+   void update(Entity&) final;
 };

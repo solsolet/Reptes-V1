@@ -1,6 +1,6 @@
-CCFLAGS := -std=c++2b -Wall -Wpedantic -Wextra -Wconversion
-CC 		:=clang++
-OBJ		:=obj/main.o obj/rendercomponent.o obj/physicscomponent.o obj/entitymanager.o
+CCFLAGS :=-std=c++2b -Wall -Wpedantic -Wextra -Wconversion
+CC      :=clang++
+OBJ     :=obj/main.o obj/rendercomponent.o obj/physicscomponent.o obj/entitymanager.o
 INCLUDE :=-Isrc/
 
 game: $(OBJ)

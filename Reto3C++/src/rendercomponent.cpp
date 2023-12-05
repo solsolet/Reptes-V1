@@ -3,12 +3,15 @@
 #include <entity.hpp>
 #include <physicscomponent.hpp>
 
-void
+void 
 RenderComponent::update(Entity& e) {
-   if(e.phy) {
-      auto& p = *e.phy;
-      x = static_cast<uint16_t>(p.x);
-      y = static_cast<uint16_t>(p.y);
+   auto& d = data;
+   auto PhyType = PhysicsComponent::getType();
+   if ( e.components.contains(PhyType) ) {
+      auto* c = e.components[PhyType];
+      auto& p = static_cast<PhysicsComponent*>(c)->data;
+      d.x = static_cast<uint16_t>(p.x);
+      d.y = static_cast<uint16_t>(p.y);
    }
-      DrawRectangle(x, y, w, h, c);
+   DrawRectangle(d.x, d.y, d.w, d.h, d.c);
 }
