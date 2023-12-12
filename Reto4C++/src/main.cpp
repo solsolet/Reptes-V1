@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <rendercomponent.hpp>
+#include <lifecomponent.hpp>
 #include <physicscomponent.hpp>
 #include <entitymanager.hpp>
 #include <memviewer.hpp>
@@ -32,7 +33,7 @@ int main() {
                      p2({ .vx=2.f });
    RenderComponent  r({ .x=100, .y=2, .w=50, .h=25 });
    RenderComponent r2({ .w=20, .h=20 });
-   LifeComponent    life({ .l=30 });
+   LifeComponent    l({ .life=30 });
 
    MemViewer MV{r};
    MV.print();
@@ -44,7 +45,7 @@ int main() {
       //e.addComponent(l);
       auto const& ec = e;
       //auto& c = e.getComponent(LifeComponent{});
-      //auto const& cc = ec.getComponent(LifeComponent);
+      //auto const& cc = ec.getComponent(LifeComponent{});
    }
    {
       auto& e = EM.newEntity();

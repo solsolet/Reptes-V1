@@ -3,7 +3,7 @@
 
 struct LifeComponent : Component {
    struct Data {
-      float l{};
+      uint32_t life{100};
    };
    Data data{};
 

@@ -1,13 +1,12 @@
 #include "lifecomponent.hpp"
-
-struct Entity;
+#include <entity.hpp>
 
 void 
-LifeComponent::update(Entity&) {
-    if (data.l > 0){
-        data.l -= 1;
-        if(data.l == 0){
-            e.alive = false;
-        }
-    }
+LifeComponent::update(Entity& e) {
+   if ( data.life > 0 ) {
+      data.life -= 1;
+      if ( data.life == 0 ) {
+         e.alive = false;
+      }
+   }
 }
