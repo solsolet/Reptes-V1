@@ -30,3 +30,7 @@ _tag dispatching_
 * hasComponent: no es necessari si fas el getComponent i en el main ho poses de certa manera
 #### Debuggejar
 Per defecte tenim el gdb. Executar en la terminal (revisar com). Posar un breakpoint i tal
+
+#### Componente de vida
+Nuestras entidades deben ser "matables". Atributo de vida. Flag muerte.
+Necessitem que el `entity.hpp`modificarlo per a poder fer en el main un LifeComponent`

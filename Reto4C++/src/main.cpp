@@ -2,25 +2,15 @@
 #include <rendercomponent.hpp>
 #include <physicscomponent.hpp>
 #include <entitymanager.hpp>
+#include <memviewer.hpp>
 
 constexpr uint16_t SCR_WIDTH  { 800 };
 constexpr uint16_t SCR_HEIGHT { 600 };
 
 void update_entities(EntityManager& EM) {
-/*
    for( auto& e : EM.getEntities() ) {
-      if ( e.phy  ) { e.phy->update(e); }
-      if ( e.life ) { e.life->update(e); }
-      if ( e.col  ) { e.col->update(e); }
-      if ( e.pre  ) { e.pre->update(e); }
+      e.update();
    }
-*/  
-   for( auto& e : EM.getEntities() ) {
-      auto* phyc = e.getComponent(PhysicsComponent{}); //mètode tag dispatching
-      if( phyc )
-         phyc->update(e);
-   }
-
 }
 
 void render_system(EntityManager& EM) {
@@ -28,7 +18,7 @@ void render_system(EntityManager& EM) {
    ClearBackground(BLACK);
 
    for( auto& e : EM.getEntities() ) {
-      auto* renc = e.getComponent(RenderComponent({})); //quidra a un rc amb dades per defecte
+      auto* renc = e.getComponent(RenderComponent({}));
       if ( renc ) { renc->update(e); }
    }
 
@@ -42,26 +32,27 @@ int main() {
                      p2({ .vx=2.f });
    RenderComponent  r({ .x=100, .y=2, .w=50, .h=25 });
    RenderComponent r2({ .w=20, .h=20 });
-   //LifeComponent l({ .life=30 })
+   LifeComponent    life({ .l=30 });
 
-//MemViewer MV{r};
-               
+   MemViewer MV{r};
+   MV.print();
+
    {
       auto& e = EM.newEntity();
-      //e.ren = &r;
-      //e.components[PhysicsComponent::getType()] = &p;
       e.addComponent(r);
       e.addComponent(p);
+      //e.addComponent(l);
+      auto const& ec = e;
+      //auto& c = e.getComponent(LifeComponent{});
+      //auto const& cc = ec.getComponent(LifeComponent);
    }
    {
       auto& e = EM.newEntity();
-      //e.ren = &r2;
-      e.getComponent(r);
+      e.addComponent(r2);
    }
    {
       auto& e = EM.newEntity();
-      //e.phy = &p2;
-      e.components[PhysicsComponent::getType()] = &p2;
+      e.addComponent(p2);
    }
    EM.newEntity();
    

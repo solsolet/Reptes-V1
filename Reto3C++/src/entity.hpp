@@ -14,6 +14,9 @@ struct Entity {
    void addComponent(PhysicsComponent& cmp) {
       components[PhysicsComponent::getType()] = &cmp;
    }
+   void addComponent(PhysicsComponent& cmp) {
+      components[PhysicsComponent::getType()] = &cmp;
+   }
 
    RenderComponent const* getComponent(RenderComponent) const noexcept { return ren; }
    RenderComponent*       getComponent(RenderComponent)       noexcept { return ren; }
