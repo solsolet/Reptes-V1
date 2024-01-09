@@ -6,6 +6,8 @@
 #include <cassert>   // debug producció
 #include <span>      // rangos
 
+//Per a completar el Starfield falta: físiques, destructor d'entitats i borrar el rastro
+
 //Ctes
 constexpr uint16_t SCR_WIDTH = 800; //objetos conocidos en tiempo de compilación
 constexpr uint16_t SCR_HEIGHT = 600;
@@ -15,7 +17,7 @@ struct Entity {
    uint16_t x{}, y{};
 };
 
-// Dará acceso al array devolviendolo por referencia constante
+// Dará acceso al array devolvidenolo por referencia constante
 struct EntityManager {
    static constexpr std::size_t MAX_ENTITIES { 100 }; //1 max_entities per a totos
    
